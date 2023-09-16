@@ -37,9 +37,9 @@ class UtilDB{
   }
 }
 
-class UtilImport{
-  constructor(url){
-    return fetch('https://raw.githubusercontent.com/roger-padrell/util-r/main/main.js', {
+class UtilReader{
+  constructor(url, callback=console.log){
+    return fetch(url, {
         method: 'GET',
       })
       .then(function(response) {
@@ -47,7 +47,7 @@ class UtilImport{
       })
       .then(function(text) {
         var q = text;
-        console.log(q.replaceAll("\n", " "));
+        callback(q);
         return q;
       })
   }
