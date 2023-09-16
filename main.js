@@ -36,19 +36,3 @@ class UtilDB{
     req.send(JSON.stringify(newd));
   }
 }
-
-class UtilReader{
-  constructor(url, callback=console.log){
-    return fetch(url, {
-        method: 'GET',
-      })
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(text) {
-        var q = text;
-        callback(q);
-        return q;
-      })
-  }
-}
