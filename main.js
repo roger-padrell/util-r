@@ -46,13 +46,9 @@ class UtilImport{
         return response.text();
       })
       .then(function(text) {
-        var userid = text;
-        this.after(userid);
-        return userid;
+        var q = text;
+        console.log(q.replaceAll("\n", " "));
+        return q;
       })
-  }
-
-  after(q){
-    console.log(q.replaceAll("\n", " "))
   }
 }
