@@ -36,3 +36,23 @@ class UtilDB{
     req.send(JSON.stringify(newd));
   }
 }
+
+class UtilImport{
+  import(url){
+    return fetch(url, {
+        method: 'GET',
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        var userid = JSON.parse(data);
+        this.after(userid);
+        return userid;
+      })
+  }
+
+  after(q){
+    console.log(q.replaceAll("\n", " "))
+  }
+}
