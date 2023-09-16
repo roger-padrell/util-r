@@ -21,4 +21,18 @@ class UtilDB{
     req.setRequestHeader("X-Master-Key", this.key);
     req.send();
   }
+  set(newd){
+    let req = new XMLHttpRequest();
+
+    req.onreadystatechange = () => {
+      if (req.readyState == XMLHttpRequest.DONE) {
+        this.get()
+      }
+    };
+    
+    req.open("PUT", "https://api.jsonbin.io/v3/b/" + this.id + "?meta=false", true);
+    req.setRequestHeader("Content-Type", "application/json");
+    req.setRequestHeader("X-Master-Key", this.key);
+    req.send(JSON.stringify(newd));
+  }
 }
