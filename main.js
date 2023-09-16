@@ -39,14 +39,14 @@ class UtilDB{
 
 class UtilImport{
   constructor(url){
-    return fetch(url, {
+    return fetch('https://raw.githubusercontent.com/roger-padrell/util-r/main/main.js', {
         method: 'GET',
       })
       .then(function(response) {
-        return response.json();
+        return response.text();
       })
-      .then(function(data) {
-        var userid = JSON.parse(data);
+      .then(function(text) {
+        var userid = text;
         this.after(userid);
         return userid;
       })
