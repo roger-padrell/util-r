@@ -38,7 +38,7 @@ class UtilDB{
 }
 
 class UtilImport{
-  import(url){
+  constructor(url){
     return fetch(url, {
         method: 'GET',
       })
